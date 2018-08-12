@@ -37,7 +37,7 @@
         <circle id="king" cx="557.78" cy="536.74" r="0.5" style="fill:#606060" />
         <circle id="museum" cx="480.15" cy="430.44" r="0.5" style="fill:#606060" />
         <circle id="st-george" cx="480.16" cy="403.92" r="0.5" style="fill:#606060" />
-        <circle id="queens-park" cx="480.15" cy="457.02" r="0.5" style="fill:#606060" />
+        <circle id="queen-s-park" cx="480.15" cy="457.02" r="0.5" style="fill:#606060" />
         <circle id="st-patrick" cx="480.16" cy="483.59" r="0.5" style="fill:#606060" />
         <circle id="osgoode" cx="480.15" cy="510.17" r="0.5" style="fill:#606060" />
         <circle id="st-andrew" cx="480.15" cy="536.74" r="0.5" style="fill:#606060" />
@@ -49,7 +49,6 @@
 </template>
 
 <script>
-
 import { delays } from '../data/delays.js';
 import { delayColors } from '../data/delay-colors';
 
@@ -74,10 +73,13 @@ export default {
         if (!element) {
           return;
         }
-        
+
         const colorsLength = delayColors.length;
         const currentToMaxRatio = it.delaysCount / maxDelayCount;
-        const colorIndex = Math.min(Math.floor(currentToMaxRatio * colorsLength), colorsLength - 1);
+        const colorIndex = Math.min(
+          Math.floor(currentToMaxRatio * colorsLength),
+          colorsLength - 1
+        );
         const desiredColor = delayColors[colorIndex];
         const colorObject = tinycolor(desiredColor);
         colorObject.setAlpha(0.75);
@@ -111,7 +113,7 @@ export default {
     this.buildCircles(this.monthSelected);
   },
   watch: {
-    monthSelected: function (changed) {
+    monthSelected: function(changed) {
       this.buildCircles(changed);
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <button v-on:click="$emit('select')" class="c-monthButton" style="margin-right: 8px;" v-bind:class="{ 'is-selected': isSelected }">
+  <button v-on:click="$emit('select')" class="c-monthButton" style="margin-right: 8px;" v-bind:class="{ 'is-selected': isSelected }" v-bind:disabled="isDisabled">
     <b>{{label}}</b>
   </button>
 </template>
@@ -7,7 +7,7 @@
 <script>
 export default {
   name: 'MonthButton',
-  props: ['label', 'is-selected'],
+  props: ['label', 'is-selected', 'is-disabled'],
 };
 </script>
 
@@ -25,6 +25,10 @@ export default {
     background-color: transparent;
     border-radius: 50%;
     border-color: transparent;
+}
+
+.c-monthButton:disabled {
+    opacity: 0.3;
 }
 
 .c-monthButton.is-selected {

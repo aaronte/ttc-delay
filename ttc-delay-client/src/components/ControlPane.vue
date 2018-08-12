@@ -6,7 +6,7 @@
     <p style="color: white; font-size: 18px; margin-bottom: 16px;">
       Month
     </p>
-    <MonthButton v-for="month in months" v-bind:key="month.name" v-bind:label="month.name[0].toUpperCase()" v-bind:isSelected="selectedMonth === month.name" v-on:select="selectMonth(month.name);$emit('monthSelect', month.name)" />
+    <MonthButton v-for="month in months" v-bind:key="month.name" v-bind:label="month.name[0].toUpperCase()" v-bind:isSelected="selectedMonth === month.name" v-on:select="selectMonth(month.name);$emit('monthSelect', month.name)" v-bind:isDisabled="month.disabled"/>
   </div>
 </template>
 
@@ -43,18 +43,23 @@ export default {
           name: 'july'
         },
         {
+          disabled: true,
           name: 'august'
         },
         {
+          disabled: true,
           name: 'september'
         },
         {
+          disabled: true,
           name: 'october'
         },
         {
+          disabled: true,
           name: 'november'
         },
         {
+          disabled: true,
           name: 'december'
         }
       ]
