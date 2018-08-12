@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "npm run --prefix ttc-delay-client build && rm -rf ./public && mv ttc-delay-client/dist public && firebase deploy --only hosting --project ttc-delay"
+    "build": "npm run --prefix ttc-delay-client build && rm -rf ./public && mv ttc-delay-client/dist public",
+    "deploy": "npm run --prefix ttc-delay-client build && rm -rf ./public && mv ttc-delay-client/dist public && firebase deploy --only hosting --project ttc-delay",
+    "deploy:ci": "npm run --prefix ttc-delay-client build && rm -rf ./public && mv ttc-delay-client/dist public && firebase deploy --only hosting --project ttc-delay --token $FIREBASE_CI_TOKEN"
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +16,9 @@
     "csvtojson": "^2.0.4",
     "lodash": "^4.17.10",
     "twit": "^2.2.10"
+  },
+  "devDependencies": {
+    "@vue/cli": "^3.0.0",
+    "firebase-tools": "^4.0.3"
   }
 }
