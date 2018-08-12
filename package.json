@@ -1,0 +1,18 @@
+{
+  "name": "ttc-delay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run --prefix ttc-delay-client build && rm -rf ./public && mv ttc-delay-client/dist public && firebase deploy --only hosting --project ttc-delay"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/language": "^1.2.0",
+    "csvtojson": "^2.0.4",
+    "lodash": "^4.17.10",
+    "twit": "^2.2.10"
+  }
+}
